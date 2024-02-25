@@ -8,6 +8,9 @@
     - [Backup](#backup)
     - [Restore](#restore)
   - [Network](#network)
+- [DOCKERFILE](#dockerfile)
+  - [Build](#build)
+  - [Push](#push)
 
 ## Image
 list -> `docker image ls`
@@ -132,3 +135,54 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
 ```
+
+
+# DOCKERFILE
+
+## Instruction
+
+LABEL -> `LABEL {key}:{value}`
+
+FROM -> `FROM {image}:{tag}`
+
+RUN -> `RUN {command}`
+- mkdir
+- echo
+- cat
+
+CMD -> `CMD {command}`
+
+ADD -> `ADD {source} {destination}`
+
+COPY -> `COPY {source} {destination}`
+
+EXPOSE -> `EXPOSE {8080}`
+
+ENV -> `key={value}`
+
+ARG -> `key={value}`
+
+VOLUME -> `VOLUME {dir}`
+
+WORKDIR -> `WORKDIR {/absolut} {relative}`
+
+USER -> `USER {username}`
+
+HEALTY -> `HEALTY {options} CMD {command}`
+- --interval={duration}
+- --timeout={duration}
+- --start-period={duration}
+- --retries={N}
+
+ENTRYPOINT -> `ENTRYPOINT []`
+
+## Build
+`docker build -t {username}:{tag} {dir}`
+- --progress=plain
+- --no-cache
+- --build-arg {arg}
+
+## Push
+`docker login -u nuazsa`
+
+`docker push {image}`
